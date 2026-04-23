@@ -1,0 +1,119 @@
+/* Base font size for rem calculation */
+html {
+  font-size: 1rem; /* Sets the base font size using rem */
+}
+
+body {
+  font-family: Georgia, serif; /* Sets the body font to Georgia, serif */
+  font-size: 1rem; /* Sets the base font size for the page */
+  line-height: 1.75rem; /* Sets the line height to 1.75rem */
+  margin: 0 8rem; /* Adds left and right page margins using rem */
+  color: #000; /* Sets the default text color to black */
+  background-color: #d2dc9d; /* Sets the page background color to light green */
+  background-image: url("images/blackgoose.png"); /* Adds the goose image to the page background */
+  background-repeat: no-repeat; /* Prevents the background image from repeating */
+  background-position: center 6.25rem; /* Centers the background image and moves it down from the top */
+  background-attachment: fixed; /* Keeps the background image fixed when the page scrolls */
+}
+
+header {
+  margin-top: 0; /* Removes any top margin from the header */
+  padding: 3rem 1rem 2rem 1rem; /* Adds space inside the header */
+  text-align: center; /* Centers the text inside the header */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.5
+  ); /* Adds a semi-transparent white background behind the header */
+  background-image: url("images/purpledot.png"); /* Adds the purple dot image to the header background */
+  background-repeat: repeat-x; /* Repeats the purple dot image horizontally across the header */
+  background-position: center top; /* Positions the purple dots at the top center of the header */
+}
+
+main {
+  display: block; /* Ensures the main element behaves as a block-level element */
+}
+
+section {
+  margin-bottom: 2rem; /* Adds space below each section */
+}
+
+a {
+  color: #939; /* Sets the default link color to purple */
+  text-decoration: none; /* Removes underline from all links */
+}
+
+a:visited {
+  color: #937393; /* Sets visited links to a muted purple */
+}
+
+a:hover,
+a:focus {
+  color: #c700f2; /* Changes the link text to bright purple on hover and focus */
+  background-color: #fff; /* Adds a white background on hover and focus */
+}
+
+a:active {
+  color: #ff00ff; /* Changes the link text to vibrant purple while the link is being clicked */
+  background-color: #fff; /* Keeps the white background while the link is active */
+}
+
+h1 {
+  font:
+    bold 1.5rem Georgia,
+    serif; /* Sets the h1 font to bold, 1.5rem, and Georgia */
+  color: #939; /* Sets the h1 color to purple */
+  text-shadow: 0.1rem 0.1rem 0.2rem #808080; /* Adds a soft gray shadow behind the h1 text */
+}
+
+h2 {
+  font-size: 1rem; /* Sets the h2 font size */
+  color: #c60; /* Sets the h2 color to light brown */
+  text-transform: uppercase; /* Makes all h2 text uppercase */
+  letter-spacing: 0.5rem; /* Adds space between the letters */
+  text-align: center; /* Centers the h2 text */
+}
+
+dt {
+  font-weight: bold; /* Makes definition terms bold */
+}
+
+strong {
+  font-style: italic; /* Makes strong text italic */
+}
+
+ul {
+  list-style-type: none; /* Removes default bullet points from the list */
+  margin: 0; /* Removes default margin from the unordered list */
+  padding: 0; /* Removes default padding from the unordered list */
+}
+
+li {
+  margin-bottom: 0.5rem; /* Adds space below each list item */
+}
+
+#info p {
+  font-style: italic; /* Makes the information paragraph italic */
+}
+
+.price {
+  font-family: Georgia, serif; /* Uses Georgia for the price text */
+  font-style: italic; /* Makes the price italic */
+}
+
+p.warning,
+sup {
+  font-size: 0.875rem; /* Makes warning text and superscript slightly smaller */
+}
+
+.label {
+  font-weight: bold; /* Makes label text bold */
+  font-variant: small-caps; /* Displays label text in small caps */
+  font-style: normal; /* Makes sure label text is not italic */
+}
+
+h2 + p {
+  text-align: center; /* Centers the paragraph directly after each h2 */
+  font-style: italic; /* Makes the paragraph directly after each h2 italic */
+}
