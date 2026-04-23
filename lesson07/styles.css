@@ -1,0 +1,405 @@
+/* =======================
+   1. Global Styles
+======================= */
+
+/* Apply border-box sizing to all elements and pseudo-elements
+   so padding and borders stay inside the set width/height */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Ensure padding and border are included in width/height */
+}
+
+/* Set base text size and line spacing for readability
+   Also adds top scroll padding so anchor links do not hide behind the fixed nav */
+html {
+  font-size: 100%; /* Base font size (usually 16px) */
+  line-height: 1.5; /* Better text readability */
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: 5rem;
+}
+
+/* Smooth scrolling for in-page navigation links */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Basic page styles */
+body {
+  margin: 0; /* Remove default browser margin */
+  min-height: 100vh; /* Make sure body can fill the full viewport height */
+  background-image: url("images/turtle.jpg"); /* Page background image */
+  background-repeat: no-repeat; /* Prevent image repeating */
+  background-position: center top; /* Keep image centered at the top */
+  background-attachment: fixed; /* Keep background in place on larger screens */
+  background-size: cover; /* Make image cover entire background area */
+  font-family: "Lato", sans-serif; /* Main body font */
+  color: #111; /* Default text color */
+  padding-top: 4.5rem; /* Space for the fixed navigation bar */
+}
+
+/* =======================
+   2. Headings and Paragraphs
+======================= */
+
+/* Shared heading styles */
+h1,
+h2,
+h3 {
+  font-family: "Zilla Slab", serif; /* Decorative heading font */
+  line-height: 1.2; /* Tighter line spacing for headings */
+  text-wrap: balance; /* Helps headings break more evenly */
+  margin-top: 0; /* Remove default top margin */
+}
+
+/* Main page heading */
+h1 {
+  color: #fff; /* White text for contrast on dark background */
+  text-shadow: 0 2px 4px rgb(0 0 0 / 40%); /* Shadow improves readability */
+}
+
+/* Card headings */
+h2 {
+  font-size: 1.5rem; /* Larger size for section headings */
+  font-weight: 300; /* Light font weight */
+  margin-bottom: 0.375rem; /* Small space below heading */
+}
+
+/* Paragraph spacing */
+p {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+/* =======================
+   3. Reusable Utilities
+======================= */
+
+/* General content container for centered layouts */
+.container {
+  width: min(90%, 75rem); /* Responsive width with a max size */
+  margin-inline: auto; /* Center container horizontally */
+}
+
+/* Visually hide content but keep it readable by screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* =======================
+   4. Links and Images
+======================= */
+
+/* Link styles */
+a {
+  color: inherit; /* Links use the surrounding text color */
+  text-decoration: none; /* Remove underline */
+  transition: 0.2s ease; /* Smooth hover/focus transitions */
+}
+
+/* Keyboard focus styles for accessibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #0b4f6c;
+  outline-offset: 4px;
+}
+
+/* Responsive image styles */
+img {
+  display: block; /* Remove extra inline spacing */
+  max-width: 100%; /* Prevent images from overflowing containers */
+  height: auto; /* Keep image proportions correct */
+  object-fit: cover; /* Fill image area neatly if constrained */
+}
+
+/* =======================
+   5. Header Section
+======================= */
+
+/* Intro text area at the top of the page */
+header {
+  margin-inline-start: 5.5rem; /* Push header inward from the left on larger screens */
+  padding: 2.5rem; /* Space inside header */
+  width: min(50%, 42rem); /* Limit line length for readability */
+}
+
+/* Main heading inside the header */
+header h1 {
+  font-size: clamp(2rem, 4vw, 2.4rem); /* Responsive heading size */
+  margin-bottom: 0.625rem;
+}
+
+/* Intro paragraph inside the header */
+header p {
+  max-width: 65ch; /* Comfortable reading width */
+  color: #fff; /* White text for contrast */
+  text-shadow: 0 1px 2px rgb(0 0 0 / 35%); /* Improve readability over image */
+}
+
+/* =======================
+   6. Navigation Bar
+======================= */
+
+/* Main navbar container */
+.navbar {
+  display: flex; /* Uses Flexbox t place the hamburger button and nav list in one row */
+  align-items: center; /* Vertically centers all items inside the navbar */
+  gap: 1rem; /* Adds space between the hamburger button and the nav menu */
+  position: fixed; /* Keeps the navbar fixed at the top when scrolling */
+  top: 0; /* Positions navbar at the very top of the page */
+  left: 0; /* Aligns navbar to the left edge */
+  width: 100%; /* Makes navbar span the full width of the screen */
+  z-index: 1000; /* Ensures navbar stays above other page content. */
+  background-color: #aae1f9; /* Sets a light blue background for visibility */
+  padding: 1rem; /* Adds space inside the navbar */
+  box-shadow: 0 2px 10px rgb(0 0 0 / 10%); /* Adds a subtle shadow to separate the navbar */
+}
+/* Navigation list on larger screens */
+.navbar ul {
+  display: flex; /* Arranges navigation links in a horizontal row. It controls the layout */
+  flex: 1; /* Allows the nav list to expand and fill available space (stretch across the screen) */
+  justify-content: space-evenly; /* Evenly distributes links across the navbar */
+  align-items: center; /* Vertically centers the links */
+  list-style: none; /* Removes default bulet points from the list */
+  margin: 0; /* Removes default margin from the list */
+  padding: 0; /* Removes default padding from the list */
+  gap: 0.5rem; /* Adds small spacing between each navigation item */
+  text-transform: uppercase; /* Converts all link text to uppercase */
+}
+
+/* Remove default spacing from list items */
+.navbar li {
+  margin: 0; /* Removes browser default margin so spacing is controlled with flexbox */
+}
+
+/* Set navigation link text color */
+.navbar a {
+  color: #fff; /* Makes all navigation links white for contrast against the navbar background */
+}
+
+/* Style each navigation link */
+.navbar li a {
+  display: block; /* Makes the entire area clickable, not just the text */
+  padding: 0.5rem 1rem; /* Adds space inside the link for easier clicking/tapping */
+  border-radius: 0.375rem; /* Slightl rounds the corners for a softer look */
+  transition: background-color 0.2s ease-in-out; /* Smooth transition when hovering */
+}
+
+/* Add hover and keyboard focus effect */
+.navbar li a:hover,
+.navbar li a:focus-visible {
+  background-color: #79a3e3; /* Changes background color when hovered or focused */
+}
+
+/* =======================
+   7. Hamburger Button
+======================= */
+
+/* Hide hamburger on large screens */
+.hamburger {
+  display: none;
+  flex-direction: column; /* Stack bars verticaly */
+  justify-content: space-around;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.25rem;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+/* Individual hamburger bars */
+.bar {
+  width: 1.5625rem;
+  height: 0.25rem;
+  background-color: #fff;
+  border-radius: 999px;
+}
+
+/* =======================
+   8. Main Content Area
+======================= */
+
+/* Main content wrapper */
+main {
+  width: min(95%, 75rem); /* Page content width */
+  margin-inline: auto; /* Center main content */
+}
+/* =======================
+   9. Card Grid Layout
+======================= */
+/* Grid container for all cards */
+.cards {
+  display: grid; /* Turns the container into a CSS Grid layout */
+  grid-template-columns: repeat(
+    3,
+    1fr
+  ); /* Creates 3 equal-width columns on large screens */
+  gap: 1.25rem;
+}
+
+/* Individual card styles */
+.card {
+  border: 1px solid #fff; /* Adds a white border around each card */
+  background-color: rgb(
+    255 255 255 / 50%
+  ); /* Semi-transparent white background */
+  overflow: hidden; /* Prevents content (like images) from spilling outside the card */
+  border-radius: 0.5rem; /* Rounds the corners of the card */
+  backdrop-filter: blur(
+    2px
+  ); /* Adds a subtle glass-like blur effect behind the card */
+}
+
+/* Make the entire card clickable */
+.card a {
+  display: block;
+  height: 100%;
+}
+
+/* Card hover and focus interaction */
+.card:hover,
+.card:focus-within {
+  box-shadow: 0.25rem 0.25rem 0.5rem rgb(0 0 0 / 80%);
+  transform: translateY(-2px); /* Moves the card slightly upward */
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease; /* Smooth animation */
+}
+
+/* Card image styling */
+.card img {
+  aspect-ratio: 16 / 10;
+  object-fit: cover; /* Crops images to fill the space without distortion */
+}
+
+/* Inner content spacing */
+.card-content {
+  padding: 1.4rem;
+}
+/* =======================
+    Footer
+======================= */
+
+footer {
+  width: min(95%, 75rem);
+  margin: 2rem auto 1.5rem;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  border: 1px solid #fff;
+  border-radius: 0.5rem;
+  background-color: rgb(255 255 255 / 55%);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #111;
+}
+/* =======================
+   10. Medium Screens
+======================= */
+
+/* Switch to 2 columns on tablets and medium screens */
+@media (max-width: 64rem) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =======================
+   11. Small Screens
+======================= */
+
+/* Mobile layout adjustments */
+@media (max-width: 48rem) {
+  body {
+    font-size: 0.95rem;
+    padding-top: 5rem;
+    background-attachment: scroll;
+  }
+
+  header {
+    margin: 0;
+    padding: 1.5rem;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  .navbar {
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0.75rem 1rem;
+  }
+
+  .navbar ul {
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    width: 100%;
+    margin: 0;
+    padding: 0.5rem 0;
+    background-color: #aae1f9;
+    position: static;
+    gap: 0;
+    box-shadow: none;
+  }
+
+  .navbar ul.active {
+    display: flex;
+  }
+
+  .navbar li {
+    width: 100%;
+  }
+
+  .navbar li a {
+    display: block;
+    width: 100%;
+    padding: 0.875rem 1rem;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .card-content {
+    padding: 1rem;
+  }
+  footer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+  }
+}
