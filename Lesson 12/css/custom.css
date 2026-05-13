@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Modern CSS Feature #1: CSS variables */
+:root {
+  --bg: #f3e1cb;
+  --bg-soft: #fcf4fb;
+  --card: rgba(255, 255, 255, 0.78);
+  --text: #2e241f;
+  --text-soft: #6b5a4f;
+  --accent: #8f6a52;
+  --accent-deep: #6d4f3d;
+  --line: rgba(143, 106, 82, 0.18);
+  --shadow: 0 20px 50px rgba(69, 43, 27, 0.08);
+  --radius-xl: 28px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(144, 60, 127, 0.12),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(143, 106, 82, 0.08),
+      transparent 24%
+    ),
+    linear-gradient(180deg, #f9f4ee 0%, #f5eee7 100%);
+  line-height: 1.72;
+}
+
+/* Modern CSS Feature #2: :is() selector */
+:is(h1, h2, h3) {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 600;
+}
+
+/* Modern CSS Feature #3: clamp() for responsive text */
+h1 {
+  font-size: clamp(3rem, 7vw, 5.5rem);
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--accent-deep);
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 2px;
+  margin: 14px auto 0;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  border-radius: 999px;
+}
+
+.bg-custom {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.32),
+      rgba(255, 255, 255, 0.06)
+    ),
+    linear-gradient(180deg, #d8c5b4 0%, #c9b19f 100%);
+}
+
+.bg-soft {
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+.portfolio-image {
+  width: 100%;
+  max-height: 520px;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border: 1px solid rgba(120, 90, 68, 0.15);
+}
+
+.custom-card {
+  background: var(--card);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+}
+
+.btn-custom {
+  background-color: var(--accent-deep);
+  color: #fffaf6;
+  border-radius: 999px;
+  padding: 0.85rem 1.5rem;
+}
+
+.btn-custom:hover {
+  background-color: var(--accent);
+  color: #fffaf6;
+}
+
+/* Required custom CSS for table caption */
+caption {
+  caption-side: top;
+  text-align: right;
+  color: var(--text-soft);
+  font-style: italic;
+  padding-bottom: 0.75rem;
+}
+
+/* Modern CSS Feature #4: :has() selector */
+.card:has(form) {
+  border-top: 5px solid var(--accent);
+}
+
+.table {
+  background-color: #ffffff;
+}
+
+.table-dark {
+  --bs-table-bg: var(--accent-deep);
+}
+
+.form-control,
+.form-select {
+  border-radius: 14px;
+  border-color: var(--line);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 0.25rem rgba(143, 106, 82, 0.18);
+}
+
+.footer-custom {
+  color: var(--text-soft);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .custom-card {
+    border-radius: 20px;
+  }
+
+  .card-body {
+    padding: 1.5rem !important;
+  }
+
+  .portfolio-image {
+    max-height: 420px;
+  }
+
+  header {
+    text-align: center;
+  }
+}
+/* Transform & Transition Assignment */
+.fade-img {
+  opacity: 0.5;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  transform-origin: center;
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+}
+
+.fade-img:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
